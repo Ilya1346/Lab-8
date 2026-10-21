@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интересные факты о шести линиях метро Санкт-Петербурга.">
+    <title>Метро Санкт-Петербурга</title>
+    <link rel="stylesheet" href="styles6.css">
+</head>
+<body data-line="1">
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="Метро Санкт-Петербурга — главная">
+            <img class="metro-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Spb_metro_logo.svg" alt="Логотип Петербургского метрополитена">
+            <span>Метро Санкт-Петербурга</span>
+        </a>
+        <nav class="main-nav" aria-label="Главное меню">
+            <a href="#lines">Линии метро</a>
+            <a href="#search">Найти факт</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">Санкт-Петербург · 2026</p>
+                <h1>Метро Петербурга: Сотни историй шести линий</h1>
+                <p>Изучите историю станций, особенности маршрутов и интересные факты о каждой действующей линии метрополитена.</p>
+                <a class="main-button" href="#lines">Выбрать линию</a>
+            </div>
+            <figure class="hero-map">
+                <a href="https://metro.spb.ru/map.html?v=1" target="_blank" rel="noopener noreferrer">
+                    <img src="2228380.png" alt="Актуальная схема линий метро Санкт-Петербурга" loading="eager">
+                </a>
+                <figcaption>Схема сети метро на 2026 год. </figcaption>
+            </figure>
+        </section>
+
+        <section class="summary" aria-label="Кратко о метро">
+            <div><strong>6</strong><span>действующих линий</span></div>
+            <div><strong>75</strong><span>станций по данным на 2026 год</span></div>
+            <div><strong>1955</strong><span>год открытия первой линии</span></div>
+        </section>
+
+        <section class="section" id="lines">
+            <div class="section-heading">
+                <h2>Выбери линию метро</h2>
+                <p>Нажмите на нужную ветку — цвет сайта и информация ниже изменятся:D</p>
+            </div>
+
+            <div class="line-buttons" role="group" aria-label="Выбор линии метро">
+                <button class="line-button active" type="button" data-line="1" aria-pressed="true">1. Кировско-Выборгская</button>
+                <button class="line-button" type="button" data-line="2" aria-pressed="false">2. Московско-Петроградская</button>
+                <button class="line-button" type="button" data-line="3" aria-pressed="false">3. Невско-Василеостровская</button>
+                <button class="line-button" type="button" data-line="4" aria-pressed="false">4. Лахтинско-Правобережная</button>
+                <button class="line-button" type="button" data-line="5" aria-pressed="false">5. Фрунзенско-Приморская</button>
+                <button class="line-button" type="button" data-line="6" aria-pressed="false">6. Красносельско-Калининская</button>
+            </div>
+
+            <article class="line-card" aria-live="polite">
+                <p class="line-label" id="line-label">ЛИНИЯ 1 · КРАСНАЯ</p>
+                <h3 id="line-title">Кировско-Выборгская линия</h3>
+                <p id="line-description">Первая линия метро Петербурга — маршрут, с которого в 1955 году началась подземная транспортная история города.</p>
+                <h4>Интересные факты</h4>
+                <ul id="line-facts">
+                    <li>Первый участок открыли 15 ноября 1955 года — от «Автово» до «Площади Восстания».</li>
+                    <li>Станция «Автово» известна декоративными колоннами и относится к объектам культурного наследия.</li>
+                </ul>
+                <dl class="line-info">
+                    <div><dt>Год открытия</dt><dd id="line-year">1955</dd></div>
+                    <div><dt>Маршрут</dt><dd id="line-route">Девяткино — Проспект Ветеранов</dd></div>
+                </dl>
+                <a id="line-source" href="https://metro.spb.ru/metro.html" target="_blank" rel="noopener noreferrer">Источник по линии ↗</a>
+            </article>
+        </section>
+
+        <section class="section search-section" id="search">
+            <div>
+                <h2>Найти интересный факт</h2>
+                <p>Введите название станции, год или ключевое слово.</p>
+            </div>
+            <form id="fact-form" class="search-form">
+                <label for="query">Что будем искать?</label>
+                <input id="query" name="query" type="search" placeholder="Введите слово или станцию" required>
+                <label for="line-filter">Искать по линии</label>
+                <select id="line-filter" name="line">
+                    <option value="all">Все линии</option>
+                    <option value="1">1 — красная</option>
+                    <option value="2">2 — синяя</option>
+                    <option value="3">3 — зелёная</option>
+                    <option value="4">4 — оранжевая</option>
+                    <option value="5">5 — фиолетовая</option>
+                    <option value="6">6 — коричневая</option>
+                </select>
+                <button class="main-button" type="submit">Найти факт</button>
+                <p id="search-message" role="status">Результаты поиска.</p>
+            </form>
+        </section>
+
+    
+    <footer class="site-footer">
+        <p> ООО "Тмыв денег" 2067</p>
+        <a href="#top">Наверх ↑</a>
+    </footer>
+
+    <script>
+        const lines = {
+            1: {
+                name: 'Кировско-Выборгская линия', color: 'КРАСНАЯ', year: '1955',
+                route: 'Девяткино — Проспект Ветеранов',
+                description: 'Первая линия метро Петербурга — маршрут, с которого в 1955 году началась подземная транспортная история города.',
+                facts: [
+                    'Первый участок открыли 15 ноября 1955 года — от «Автово» до «Площади Восстания».',
+                    'Станция «Автово» известна декоративными колоннами и относится к объектам культурного наследия.'
+                ], source: 'https://metro.spb.ru/metro.html'
+            },
+            2: {
+                name: 'Московско-Петроградская линия', color: 'СИНЯЯ', year: '1961',
+                route: 'Парнас — Купчино',
+                description: 'Вторая линия связывает северные и южные районы города и проходит через центральную часть Петербурга.',
+                facts: [
+                    'Первая очередь открылась 29 апреля 1961 года; тогда заработали пять станций.',
+                    '«Парк Победы» — станция закрытого типа: посадочные платформы отделены от путей стенами с дверями.'
+                ], source: 'https://www.gov.spb.ru/gov/otrasl/c_transport/transportnoe-obsluzhivanie-park-pobedy/'
+            },
+            3: {
+                name: 'Невско-Василеостровская линия', color: 'ЗЕЛЁНАЯ', year: '1967',
+                route: 'Беговая — Рыбацкое',
+                description: 'Зелёная линия соединяет Приморский и Невский районы с центральной частью города.',
+                facts: [
+                    'Линия открылась 3 ноября 1967 года; первоначально на ней работали четыре станции.',
+                    'Между станциями «Обухово» и «Рыбацкое» находится самый длинный перегон Петербургского метро — около 3,6 км.',
+                    'В 1969 году на линии начали опытную эксплуатацию аппаратуры автоведения поездов.'
+                ], source: 'https://metro.spb.ru/phrases/show/controller/index/id/35'
+            },
+            4: {
+                name: 'Лахтинско-Правобережная линия', color: 'ОРАНЖЕВАЯ', year: '1985',
+                route: 'Горный институт — Улица Дыбенко',
+                description: 'Оранжевая линия менялась вместе со схемой метро: часть старого маршрута была передана пятой линии.',
+                facts: [
+                    'Первый участок четвёртой линии открыли 30 декабря 1985 года.',
+                    'В декабре 2024 года открылась станция «Горный институт», ставшая новым западным конечным пунктом линии.'
+                ], source: 'https://metrostroyspb.ru/about/history/'
+            },
+            5: {
+                name: 'Фрунзенско-Приморская линия', color: 'ФИОЛЕТОВАЯ', year: '2008–2009',
+                route: 'Комендантский проспект — Шушары',
+                description: 'Фиолетовая линия соединяет северо-западные районы, исторический центр и южную часть города.',
+                facts: [
+                    'Линия в нынешнем виде сформировалась в 2008–2009 годах после изменения схемы движения.',
+                    'На линии находится «Адмиралтейская» — самая глубокая станция метро в России; её глубина составляет около 86 метров.'
+                ], source: 'https://metro.spb.ru/admiralstroy.html?full_version=1'
+            },
+            6: {
+                name: 'Красносельско-Калининская линия', color: 'КОРИЧНЕВАЯ', year: '2025',
+                route: 'Юго-Западная — Путиловская',
+                description: 'Самая новая линия Петербургского метрополитена. Её первый участок открылся в декабре 2025 года.',
+                facts: [
+                    'Первый участок шестой линии открыли 26 декабря 2025 года.',
+                    'При открытии участок включал две станции: «Юго-Западную» и «Путиловскую».',
+                    'На станции «Путиловская» организована пересадка на красную линию — станцию «Кировский завод».'
+                ], source: 'https://www.metro-spb.ru/news/2026/01-16.htm'
+            }
+        };
+
+        const buttons = document.querySelectorAll('.line-button');
+        const message = document.getElementById('search-message');
+
+        function showLine(id) {
+            const line = lines[id];
+            if (!line) return;
+            document.body.dataset.line = id;
+            buttons.forEach((button) => {
+                const active = button.dataset.line === String(id);
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
+            document.getElementById('line-label').textContent = `ЛИНИЯ ${id} · ${line.color}`;
+            document.getElementById('line-title').textContent = line.name;
+            document.getElementById('line-description').textContent = line.description;
+            document.getElementById('line-year').textContent = line.year;
+            document.getElementById('line-route').textContent = line.route;
+            document.getElementById('line-source').href = line.source;
+            const list = document.getElementById('line-facts');
+            list.replaceChildren();
+            line.facts.forEach((fact) => {
+                const item = document.createElement('li');
+                item.textContent = fact;
+                list.appendChild(item);
+            });
+        }
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => showLine(button.dataset.line));
+        });
+
+        document.getElementById('fact-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const query = document.getElementById('query').value.trim().toLocaleLowerCase('ru');
+            const selectedLine = document.getElementById('line-filter').value;
+            const result = Object.entries(lines).find(([id, line]) => {
+                if (selectedLine !== 'all' && selectedLine !== id) return false;
+                const text = [line.name, line.color, line.year, line.route, line.description, ...line.facts]
+                    .join(' ').toLocaleLowerCase('ru');
+                return text.includes(query);
+            });
+            if (result) {
+                showLine(result[0]);
+                message.textContent = `Найден факт по теме «${query}». Открыта линия ${result[0]} — ${result[1].name}.`;
+                document.getElementById('lines').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                message.textContent = 'Ничего не найдено. Попробуйте «Автово», «2025» или «самая глубокая».';
+            }
+        });
+
+        showLine('1');
+    </script>
+</body>
+</html>
